@@ -1,0 +1,49 @@
+//Задача 2. Четные в начало
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+void sort_even_odd(int n, int a[]) {
+
+    int c,t;
+
+    while (1)
+    {
+        c=0;
+        for (int i=0; i<n-1; i++)
+        {
+            if (a[i]%2==1 && a[i+1]%2==0)
+            {
+                t=a[i];
+                a[i]=a[i+1];
+                a[i+1]=t;
+                c++;
+            }
+        }
+
+        if (c==0) return;
+    }
+
+}
+
+int main() {
+    setlocale(LC_ALL,"Russian");
+    int n;
+    printf("Введите размер массива: ");
+    scanf("%d", &n);
+
+    int a[n];
+    printf("Введите элементы массива: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    sort_even_odd(n, a);
+
+    printf("Отсортированный массив: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
